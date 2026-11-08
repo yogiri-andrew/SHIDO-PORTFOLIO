@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="SHIDO — Founder & Developer. AI, bots, web development and technology.">
+<title>SHIDO — Developer Portfolio</title>
+
+<style>
+
+:root {
+  color-scheme: dark;
+  --bg: #0a1020;
+  --panel: rgba(20, 32, 54, .78);
+  --panel-hover: rgba(35, 53, 82, .92);
+  --blue: #91baff;
+  --blue-light: #dceaff;
+  --silver: #c3d0e4;
+  --text: #f1f5fc;
+  --muted: #a5b4ca;
+  --border: rgba(166, 195, 235, .19);
+  --glow: rgba(105, 159, 255, .22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background:
+    radial-gradient(ellipse at 80% 5%, rgba(75, 115, 185, .17), transparent 42%),
+    radial-gradient(ellipse at 5% 60%, rgba(65, 105, 165, .10), transparent 40%),
+    var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 16, 32, .86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+.logo span, .hero h1 span { color: var(--blue); }
+
+nav {
+  display: flex;
+  gap: 25px;
+  font-size: 12px;
+  color: var(--silver);
+}
+
+nav a {
+  transition: color .25s, text-shadow .25s;
+}
+
+nav a:hover {
+  color: var(--blue-light);
+  text-shadow: 0 0 14px var(--glow);
+}
+
+.hero {
+  min-height: 650px;
+  padding: 120px 9% 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 78% 40%, rgba(91, 143, 225, .18), transparent 52%);
+}
+
+.tag, .section-tag {
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(65px, 13vw, 145px);
+  line-height: 1;
+  margin: 20px 0;
+  letter-spacing: -7px;
+}
+
+.hero h2 {
+  font-size: clamp(18px, 3vw, 28px);
+  color: var(--silver);
+}
+
+.hero p {
+  max-width: 550px;
+  color: var(--muted);
+  margin: 22px 0;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  padding: 13px 24px;
+  border: 1px solid rgba(145, 186, 255, .48);
+  border-radius: 9px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .7px;
+  color: var(--blue-light);
+  background: rgba(27, 43, 69, .45);
+  transition: .3s ease;
+}
+
+.btn.primary {
+  color: #0a1427;
+  background: linear-gradient(135deg, #dceaff, #8db6f4);
+  border-color: transparent;
+  box-shadow: 0 6px 24px rgba(105, 159, 255, .18);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue-light);
+  box-shadow: 0 10px 28px var(--glow);
+}
+
+.btn.primary:hover {
+  background: linear-gradient(135deg, #fff, #b7d2ff);
+}
+
+section { padding: 90px 9%; }
+
+.section-title {
+  font-size: 38px;
+  margin: 10px 0 35px;
+  letter-spacing: -.8px;
+}
+
+.about {
+  max-width: 750px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.project {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(29, 44, 70, .78), rgba(15, 24, 42, .82));
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 27px;
+  min-height: 220px;
+  transition: .35s ease;
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -80px;
+  top: -80px;
+  border-radius: 50%;
+  background: rgba(132, 178, 255, .12);
+  filter: blur(25px);
+  transition: .35s;
+}
+
+.project:hover {
+  border-color: rgba(145, 186, 255, .55);
+  background: var(--panel-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, .2), 0 0 24px var(--glow);
+}
+
+.project .number {
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.project h3 { font-size: 21px; margin: 15px 0 8px; }
+.project p { font-size: 13px; color: var(--muted); }
+
+.status {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 10px;
+  color: #c8dcff;
+  border: 1px solid rgba(145, 186, 255, .3);
+  border-radius: 30px;
+  padding: 5px 11px;
+  background: rgba(105, 159, 255, .08);
+}
+
+.skills { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.skill {
+  padding: 12px 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 13px;
+  color: var(--silver);
+  transition: .25s;
+}
+
+.skill:hover {
+  color: var(--blue-light);
+  border-color: var(--blue);
+  transform: translateY(-3px);
+}
+
+.contact-section {
+  text-align: center;
+  background: linear-gradient(180deg, transparent, rgba(35, 57, 91, .19));
+}
+
+.contact-intro {
+  color: var(--muted);
+  margin: 12px auto 35px;
+  max-width: 520px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  max-width: 1000px;
+  margin: 35px auto 0;
+}
+
+.contact-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  min-height: 105px;
+  padding: 19px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: linear-gradient(145deg, rgba(31, 47, 74, .88), rgba(15, 24, 42, .94));
+  box-shadow: inset 0 1px rgba(255,255,255,.035);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.contact-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(190, 216, 255, .09), transparent 75%);
+  transform: translateX(-110%);
+  transition: transform .65s ease;
+  pointer-events: none;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(163, 199, 255, .65);
+  box-shadow: 0 12px 32px rgba(0,0,0,.23), 0 0 22px var(--glow);
+}
+
+.contact-card:hover::after { transform: translateX(110%); }
+
+.contact-icon {
+  flex: 0 0 49px;
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(170, 201, 247, .27);
+  border-radius: 13px;
+  color: var(--blue-light);
+  background: linear-gradient(145deg, rgba(145,186,255,.2), rgba(145,186,255,.05));
+  font-size: 23px;
+  box-shadow: 0 0 18px rgba(105,159,255,.08);
+  transition: .3s;
+}
+
+.contact-card:hover .contact-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 0 20px var(--glow);
+}
+
+.contact-info { min-width: 0; }
+
+.contact-info strong {
+  display: block;
+  color: var(--blue-light);
+  font-size: 12px;
+  letter-spacing: 1.4px;
+}
+
+.contact-info span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.contact-arrow {
+  margin-left: auto;
+  color: var(--blue);
+  font-size: 19px;
+  transition: transform .25s;
+}
+
+.contact-card:hover .contact-arrow { transform: translate(3px, -3px); }
+
+footer {
+  padding: 28px 7%;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+footer strong { color: var(--blue-light); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media(max-width:650px) {
+  header { padding: 15px 5%; }
+  nav { gap: 10px; font-size: 10px; }
+  .hero { min-height: 570px; padding: 90px 7%; }
+  .hero h1 { letter-spacing: -4px; }
+  section { padding: 70px 7%; }
+  .section-title { font-size: 30px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+
+<body>
+<header>
+  <a href="#" class="logo">SHIDO<span>.</span></a>
+  <nav>
+    <a href="#about">À PROPOS</a>
+    <a href="#projects">PROJETS</a>
+    <a href="#skills">COMPÉTENCES</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="tag">INDEPENDENT DEVELOPER / FOUNDER</div>
+  <h1>SHIDO<span>.</span></h1>
+  <h2>Je construis. Je développe. Je crée.</h2>
+  <p>
+    Développement d'intelligence artificielle, création de bots,
+    automatisation et conception de projets technologiques.
+    Une vision : transformer les idées en systèmes.
+  </p>
+  <div class="actions">
+    <a href="#projects" class="btn primary">DÉCOUVRIR MES PROJETS</a>
+    <a href="#contact" class="btn">ME CONTACTER</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-tag">01 / PRÉSENTATION</div>
+  <h2 class="section-title">À propos de moi.</h2>
+  <p class="about">
+    Je suis SHIDO, fondateur et développeur indépendant.
+    Je m'intéresse à la création de technologies, aux systèmes
+    intelligents et au développement logiciel.
+    Je construis progressivement mon propre écosystème de projets,
+    en privilégiant la créativité, l'apprentissage et l'innovation.
+  </p>
+</section>
+
+<section id="projects">
+  <div class="section-tag">02 / PORTFOLIO</div>
+  <h2 class="section-title">Mes projets.</h2>
+  <div class="grid">
+
+    <article class="project">
+      <div class="number">PROJECT_001</div>
+      <h3>SHIDO AI</h3>
+      <p>
+        Projet d'intelligence artificielle indépendant,
+        avec une architecture modulaire et une identité propre.
+      </p>
+      <span class="status">EN DÉVELOPPEMENT</span>
+    </article>
+
+    <article class="project">
+      <div class="number">PROJECT_002</div>
+      <h3>LAST DECREE</h3>
+      <p>
+        Écosystème technologique réunissant des projets,
+        des outils numériques et une identité organisationnelle.
+      </p>
+      <span class="status">EN DÉVELOPPEMENT</span>
+    </article>
+
+    <article class="project">
+      <div class="number">PROJECT_003</div>
+      <h3>BOT CODING UNIVERSE</h3>
+      <p>
+        Communauté et environnement dédiés au développement,
+        aux bots et au partage de connaissances.
+      </p>
+      <span class="status">EN DÉVELOPPEMENT</span>
+    </article>
+
+    <article class="project">
+      <div class="number">PROJECT_004</div>
+      <h3>LAST DECREE BOT</h3>
+      <p>
+        Bot Telegram intégrant plusieurs systèmes :
+        intelligence artificielle, RPG et automatisation.
+      </p>
+      <span class="status">EN DÉVELOPPEMENT</span>
+    </article>
+
+    <article class="project">
+      <div class="number">PROJECT_005</div>
+      <h3>SHIDO ZERO PROTOCOL</h3>
+      <p>
+        Projet de jeu avec un univers original,
+        une direction artistique anime et des mécaniques de jeu.
+      </p>
+      <span class="status">EN DÉVELOPPEMENT</span>
+    </article>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-tag">03 / TECHNOLOGIES</div>
+  <h2 class="section-title">Domaines de développement.</h2>
+  <div class="skills">
+    <span class="skill">JavaScript</span>
+    <span class="skill">Node.js</span>
+    <span class="skill">HTML & CSS</span>
+    <span class="skill">AI Development</span>
+    <span class="skill">Telegram Bots</span>
+    <span class="skill">Discord Bots</span>
+    <span class="skill">Automation</span>
+    <span class="skill">Web Development</span>
+  </div>
+</section>
+
+
+
+<section id="contact" class="contact-section">
+  <div class="section-tag">04 / CONTACT</div>
+  <h2 class="section-title">Restons en contact.</h2>
+  <p class="contact-intro">
+    Une idée, une collaboration ou simplement envie d'échanger ?
+    Retrouvez-moi sur mes plateformes.
+  </p>
+
+  <div class="contact-grid">
+    <a class="contact-card" href="https://wa.me/242067614342"
+       target="_blank" rel="noopener noreferrer" aria-label="Me contacter sur WhatsApp">
+      <span class="contact-icon" aria-hidden="true">◉</span>
+      <span class="contact-info"><strong>WHATSAPP</strong><span>+242 06 761 43 42</span></span>
+      <span class="contact-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a class="contact-card" href="https://t.me/shido_LD"
+       target="_blank" rel="noopener noreferrer" aria-label="Me contacter sur Telegram">
+      <span class="contact-icon" aria-hidden="true">➤</span>
+      <span class="contact-info"><strong>TELEGRAM</strong><span>@shido_LD</span></span>
+      <span class="contact-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a class="contact-card" href="https://instagram.com/shido_LD"
+       target="_blank" rel="noopener noreferrer" aria-label="Me retrouver sur Instagram">
+      <span class="contact-icon" aria-hidden="true">◎</span>
+      <span class="contact-info"><strong>INSTAGRAM</strong><span>@shido_LD</span></span>
+      <span class="contact-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a class="contact-card" href="https://discord.gg/kUak6Zk2"
+       target="_blank" rel="noopener noreferrer" aria-label="Rejoindre mon serveur Discord">
+      <span class="contact-icon" aria-hidden="true">◈</span>
+      <span class="contact-info"><strong>DISCORD</strong><span>Join my community</span></span>
+      <span class="contact-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a class="contact-card" href="mailto:ireneleandre4@gmail.com"
+       aria-label="M'envoyer un e-mail">
+      <span class="contact-icon" aria-hidden="true">✉</span>
+      <span class="contact-info"><strong>EMAIL</strong><span>ireneleandre4@gmail.com</span></span>
+      <span class="contact-arrow" aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <span>© 2026 <strong>SHIDO</strong> — FOUNDER & DEVELOPER</span>
+  <span>POWERED BY LAST DECREE ORGANISATION</span>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll("section").forEach(section => {
+  section.classList.add("reveal");
+  observer.observe(section);
+});
+</script>
+</body>
+</html>
